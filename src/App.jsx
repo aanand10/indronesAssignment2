@@ -1,5 +1,5 @@
 import React from "react";
-import Map from "./Map3";
+import Map from "./Map";
 
 const App = () => {
   return (

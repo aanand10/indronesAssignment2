@@ -25,13 +25,7 @@ const createRoutineMachineLayer = ({
   }).on("routesfound", function (e) {
     e.routes[0].coordinates;
     setRoute(e.routes[0].coordinates);
-    // console.log(e.routes[0].coordinates, "hjhjhj");
   });
-  // console.log(instance, "ins");
-
-  // let wayPt = instance._router.options.waypoints;
-  // wayPt.
-
   return instance;
 };
 
