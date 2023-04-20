@@ -2,11 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 768px) {
   .leaflet-control {
-    display: none;
-  }
-  MapContainer {
     display: none;
   }
 }
