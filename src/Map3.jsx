@@ -18,9 +18,9 @@ const maps = {
 };
 
 var greenIcon = L.icon({
-  iconUrl: "../public/ico.jpg",
+  iconUrl: "../public/icoDroneBG.png",
 
-  iconSize: [40, 20], // size of the icon
+  iconSize: [100, 60], // size of the icon
 });
 
 const Map = () => {
@@ -31,71 +31,100 @@ const Map = () => {
   const [droneMarker, setDroneMarker] = useState(null);
   const [index, setIndex] = useState(0);
   const [flag, setFlag] = useState(true);
+  const [intervalId, setIntervalId] = useState(true);
 
   useEffect(() => {
     setIndex(0);
   }, [route]);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      //   console.log("inhyyfr");
       //   console.log(route[index].lat, "53252");
-      setDroneMarker([route[index].lat, route[index].lng]);
+      if (flag) {
+        setDroneMarker([route[index].lat, route[index].lng]);
+      }
       setIndex(index + 1);
       //   DR();
     }, 1000);
+    setIntervalId(intervalId);
     return () => clearInterval(intervalId);
   }, [index, route]);
 
   return (
     <>
-      <MapContainer
-        center={[37.0902, -95.7129]}
-        zoom={13}
-        zoomControl={false}
-        style={{ height: "80vh", width: "80vw", padding: 0 }}
-        ref={setMap}
+      <div
+        className=" px-10 flex items-center justify-center  bg-slate-300
+  -webkit-backdrop-filter: blur(7.5px); sm:flex-col sm:bg-red-100 sm:p-2 "
       >
-        <RoutingControl
-          position={"topright"}
-          start={start}
-          end={end}
-          color={"#757de8"}
-          setRoute={setRoute}
+        <img
+          src="../public/indrones_black.png"
+          className="h-20 sm:h-14"
+          alt=""
+          srcset=""
         />
-
-        <LayersControl>
-          <LayersControl.BaseLayer checked name="Map">
-            <TileLayer url={maps.base} />
-            {droneMarker && (
-              <Marker position={droneMarker} icon={greenIcon}></Marker>
-            )}
-          </LayersControl.BaseLayer>
-        </LayersControl>
-      </MapContainer>
-      <div style={{ height: "10rem", overflowY: "scroll" }}>
-        <ul>
-          {route &&
-            route.map((element, key) => {
-              if (key <= index) {
-                // console.log(element);
-                return (
-                  <li
-                    key={key}
-                    id={key}
-                    onClick={() => {
-                      setDroneMarker([element.lat, element.lng]);
-                    //   console.log(onclick);
-                      setFlag(false);
-                    }}
-                  >
-                    Lat : {element.lat} , lng: {element.lng}
-                  </li>
-                );
-              }
-            })}
-        </ul>
+        <h1 className="ml-7 text-4xl font-bold mb-4 text-[#3a3a3c] sm:text-xl sm:p-0">
+          Assignment 2 : using leafletJs , RectJS , TailwindCSS
+        </h1>
       </div>
-      {/* <p>{(route._routes[0].coordinates[1300])}</p> */}
+      <section className="flex items-center gap-5 p-5  justify-center  h-[88vh] sm:flex-col sm:p-2 ">
+        <MapContainer
+          center={[37.0902, -95.7129]}
+          zoom={13}
+          zoomControl={false}
+          style={{
+            height: "80vh",
+            width: "80vw",
+            padding: 0,
+            borderRadius: "0.5rem",
+          }}
+          ref={setMap}
+        >
+          <RoutingControl
+            position={"topright"}
+            start={start}
+            end={end}
+            color={"#757de8"}
+            setRoute={setRoute}
+          />
+
+          <LayersControl>
+            <LayersControl.BaseLayer checked name="Map">
+              <TileLayer url={maps.base} />
+              {droneMarker && (
+                <Marker position={droneMarker} icon={greenIcon}></Marker>
+              )}
+            </LayersControl.BaseLayer>
+          </LayersControl>
+        </MapContainer>
+
+        <div className=" scroll-h p-4 bg-slate-300 rounded-md overflow-hidden h-[80vh] ">
+          <h3 className="font-semibold text-2xl text-center mb-5 sm:text-lg sm:p-0">
+            Current and old position of drone marker
+          </h3>
+          <ul className="h-[65vh] overflow-y-scroll">
+            {route &&
+              route.map((element, key) => {
+                if (key <= index) {
+                  // console.log(element);
+                  return (
+                    <li
+                      className=" text-center"
+                      key={key}
+                      id={key}
+                      onClick={() => {
+                        setFlag(false);
+                        setDroneMarker([element.lat, element.lng]);
+                        clearInterval(intervalId);
+                        //   console.log(onclick);
+                      }}
+                    >
+                      Lat : {element.lat} , lng: {element.lng}
+                    </li>
+                  );
+                }
+              })}
+          </ul>
+        </div>
+      </section>
     </>
   );
 };
