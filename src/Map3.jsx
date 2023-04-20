@@ -18,7 +18,7 @@ const maps = {
 };
 
 var greenIcon = L.icon({
-  iconUrl: "../public/icoDroneBG.png",
+  iconUrl: "/icoDroneBG.png",
 
   iconSize: [100, 60], // size of the icon
 });
@@ -56,7 +56,7 @@ const Map = () => {
   -webkit-backdrop-filter: blur(7.5px); sm:flex-col sm:bg-red-100 sm:p-2 "
       >
         <img
-          src="../public/indrones_black.png"
+          src="/indrones_black.png"
           className="lg:h-20 sm:h-14"
           alt=""
           srcset=""
