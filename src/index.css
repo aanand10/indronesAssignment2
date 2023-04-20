@@ -7,3 +7,13 @@
     display: none;
   }
 }
+@media screen and (min-width: 800px) {
+  .main-container {
+    height: 100vh !important;
+  }
+
+  .logo-title,
+  .map-pos {
+    flex-direction: row !important;
+  }
+}

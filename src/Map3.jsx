@@ -52,7 +52,7 @@ const Map = () => {
   return (
     <>
       <div
-        className=" px-10 flex lg:flex-row items-center justify-center  bg-slate-300
+        className="logo-title px-10 flex lg:flex-row items-center justify-center  bg-slate-300
   -webkit-backdrop-filter: blur(7.5px); sm:flex-col sm:bg-red-100 sm:p-2 "
       >
         <img
@@ -65,7 +65,7 @@ const Map = () => {
           Assignment 2 : using leafletJs , RectJS , TailwindCSS
         </h1>
       </div>
-      <section className="flex lg:flex-row items-center gap-5 p-5  justify-center  h-[88vh] sm:flex-col sm:p-2 ">
+      <section className="flex  items-center gap-5 p-5  justify-center  h-[88vh] sm:flex-col sm:p-2 map-pos">
         <MapContainer
           center={[37.0902, -95.7129]}
           zoom={13}
