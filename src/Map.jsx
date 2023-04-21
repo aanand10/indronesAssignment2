@@ -53,13 +53,8 @@ const Map = () => {
         className="logo-title px-10 flex lg:flex-row items-center justify-center  bg-slate-300
   -webkit-backdrop-filter: blur(7.5px);  sm:bg-red-100 sm:p-2 "
       >
-        <img
-          src="/indrones_black.png"
-          className="lg:h-20 sm:h-7"
-          alt=""
-          srcset=""
-        />
-        <h1 className="ml-7 lg:text-4xl font-bold mb-2 text-[#3a3a3c]  sm:text-sm sm-:font-semibold sm:p-0">
+        <img src="/indrones_black.png" className="h-20 " alt="" srcset="" />
+        <h1 className="ml-7 text-4xl font-bold mb-2 text-[#3a3a3c] mb-4">
           Assignment 2 : using leafletJs , RectJS , TailwindCSS
         </h1>
       </div>
@@ -95,7 +90,7 @@ const Map = () => {
           </LayersControl>
         </MapContainer>
 
-        <div className=" scroll-h p-5 bg-slate-300 rounded-md overflow-hidden h-[80vh] min-w-max sm:w-[90vw] ">
+        <div className="lnglat-container scroll-h p-5 bg-slate-300 rounded-md overflow-hidden h-[80vh] min-w-max  ">
           <h3 className="font-semibold text-base text-center mb-5 sm:text-base sm:p-0">
             Current and old position of Marker <br />
             <span className="text-green-600">Current</span> |{" "}
@@ -103,7 +98,7 @@ const Map = () => {
           </h3>
           <ul
             id="scroller"
-            className="h-[65vh] overflow-y-auto latlng-items flex flex-col last:snap-end  sm:h-[28vh] sm:w-[80vw] sm:mx-auto"
+            className="h-[65vh] overflow-y-auto latlng-items flex flex-col last:snap-end  sm:h-[28vh] "
           >
             {route &&
               route.map((element, key) => {
