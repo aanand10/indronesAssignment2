@@ -51,15 +51,15 @@ const Map = () => {
     <>
       <div
         className="logo-title px-10 flex lg:flex-row items-center justify-center  bg-slate-300
-  -webkit-backdrop-filter: blur(7.5px); sm:flex-col sm:bg-red-100 sm:p-2 "
+  -webkit-backdrop-filter: blur(7.5px);  sm:bg-red-100 sm:p-2 "
       >
         <img
           src="/indrones_black.png"
-          className="lg:h-20 sm:h-14"
+          className="lg:h-20 sm:h-7"
           alt=""
           srcset=""
         />
-        <h1 className="ml-7 lg:text-4xl font-bold mb-2 text-[#3a3a3c] sm:text-xl sm:p-0">
+        <h1 className="ml-7 lg:text-4xl font-bold mb-2 text-[#3a3a3c]  sm:text-sm sm-:font-semibold sm:p-0">
           Assignment 2 : using leafletJs , RectJS , TailwindCSS
         </h1>
       </div>
@@ -103,7 +103,7 @@ const Map = () => {
           </h3>
           <ul
             id="scroller"
-            className="h-[65vh] overflow-y-auto latlng-items flex flex-col last:snap-end  sm:h-[28vh]"
+            className="h-[65vh] overflow-y-auto latlng-items flex flex-col last:snap-end  sm:h-[28vh] sm:w-[80vw] sm:mx-auto"
           >
             {route &&
               route.map((element, key) => {
@@ -112,7 +112,7 @@ const Map = () => {
                   elementt.scrollTop = elementt.scrollHeight;
                   return (
                     <li
-                      className=" font-medium text-blue-500 text-left last:text-green-600 "
+                      className=" font-medium text-blue-500 text-left last:text-green-600 sm:mx-4 "
                       key={key}
                       id={key}
                       onClick={() => {
