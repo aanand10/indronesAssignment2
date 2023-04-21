@@ -47,6 +47,14 @@ const Map = () => {
     return () => clearInterval(intervalId);
   }, [index, route]);
 
+  var createMarker = () => {
+    if (start) {
+      return L.marker(wp.latLng, { icon: myStartOrEndIcon });
+    } else if (end) {
+      return L.marker(wp.latLng, { icon: myViaIcon });
+    }
+  };
+
   return (
     <>
       <div
