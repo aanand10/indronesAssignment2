@@ -47,14 +47,6 @@ const Map = () => {
     return () => clearInterval(intervalId);
   }, [index, route]);
 
-  var createMarker = () => {
-    if (start) {
-      return L.marker(wp.latLng, { icon: myStartOrEndIcon });
-    } else if (end) {
-      return L.marker(wp.latLng, { icon: myViaIcon });
-    }
-  };
-
   return (
     <>
       <div
@@ -71,11 +63,12 @@ const Map = () => {
           Assignment 2 : using leafletJs , RectJS , TailwindCSS
         </h1>
       </div>
-      <section className="flex  items-center gap-5 p-5  justify-center  h-[88vh] sm:flex-col sm:p-2 map-pos">
+      <section className="flex  items-center gap-5 p-5  justify-center  h-[88vh] sm:flex-col sm:p-2 map-position-container map-pos">
         <MapContainer
           center={[37.0902, -95.7129]}
           zoom={13}
           zoomControl={false}
+          className="map-container"
           style={{
             height: "80vh",
             width: "80vw",
@@ -102,17 +95,24 @@ const Map = () => {
           </LayersControl>
         </MapContainer>
 
-        <div className=" scroll-h p-4 bg-slate-300 rounded-md overflow-hidden h-[80vh] ">
-          <h3 className="font-semibold text-2xl text-center mb-5 sm:text-lg sm:p-0">
-            Current and old position of drone marker
+        <div className=" scroll-h p-5 bg-slate-300 rounded-md overflow-hidden h-[80vh] min-w-max  ">
+          <h3 className="font-semibold text-base text-center mb-5 sm:text-base sm:p-0">
+            Current and old position of Marker <br />
+            <span className="text-green-600">Current</span> |{" "}
+            <span className="text-blue-500">Old</span>
           </h3>
-          <ul className="h-[65vh] overflow-y-scroll">
+          <ul
+            id="scroller"
+            className="h-[65vh] overflow-y-auto latlng-items flex flex-col last:snap-end  sm:h-[28vh]"
+          >
             {route &&
               route.map((element, key) => {
                 if (key <= index) {
+                  var elementt = document.getElementById("scroller");
+                  elementt.scrollTop = elementt.scrollHeight;
                   return (
                     <li
-                      className=" text-center"
+                      className=" font-medium text-blue-500 text-left last:text-green-600 "
                       key={key}
                       id={key}
                       onClick={() => {
@@ -121,7 +121,8 @@ const Map = () => {
                         clearInterval(intervalId);
                       }}
                     >
-                      Lat : {element.lat} , lng: {element.lng}
+                      <span className=" font-semibold">{">"}</span> Lat :{" "}
+                      {element.lat} , lng: {element.lng}
                     </li>
                   );
                 }
