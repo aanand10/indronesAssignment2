@@ -98,7 +98,7 @@ const Map = () => {
           </h3>
           <ul
             id="scroller"
-            className="h-[65vh] overflow-y-auto latlng-items flex flex-col last:snap-end  sm:h-[28vh] "
+            className="h-[65vh] overflow-y-auto latlng-items flex flex-col last:snap-end   "
           >
             {route &&
               route.map((element, key) => {
