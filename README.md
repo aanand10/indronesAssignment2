@@ -37,7 +37,8 @@ Needs to build and SPA with the following Components:
     src="https://github.com/onlyanand10/indronesAssignment2/blob/main/public/indronesAssignment2Mob.jpg"
     alt="Alt text"
     title="indronesAssignment2 mobile screenshot"
-    style="display: inline-block; margin: 0 auto; max-height: 300px">
+    style="display: inline-block; margin: 0 auto; max-height: 200px">
 
 <hr/>
+
 - My Personal website : [click me](https://onlyanand10.github.io/portfolio/)
