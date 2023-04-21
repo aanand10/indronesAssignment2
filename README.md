@@ -11,7 +11,13 @@ Completed using leafletJs , ReactJs , TailwindCSS
 ## Screenshot :
 
 <img
-  src="https://raw.githubusercontent.com/onlyanand10/indronesAssignment2/public/indronesAssignment2.png"
-  alt="Alt text"
-  title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+    src="https://github.com/onlyanand10/indronesAssignment2/blob/main/public/indronesAssignment2.png"
+    alt="Alt text"
+    title="indronesAssignment2 screenshot"
+    style="display: inline-block; margin: 0 auto; max-width: 300px">
+
+<img
+    src="https://github.com/onlyanand10/indronesAssignment2/blob/main/public/indronesAssignment2Mob.jpg"
+    alt="Alt text"
+    title="indronesAssignment2 mobile screenshot"
+    style="display: inline-block; margin: 0 auto; max-width: 300px">
