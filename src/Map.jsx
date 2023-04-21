@@ -55,7 +55,7 @@ const Map = () => {
       >
         <img src="/indrones_black.png" className="h-20 " alt="" srcset="" />
         <h1 className="ml-7 text-4xl font-bold mb-2 text-[#3a3a3c] mb-4">
-          Assignment 2 : using leafletJs , RectJS , TailwindCSS
+          Assignment 2 : using leafletJs , ReactJS , TailwindCSS
         </h1>
       </div>
       <section className="flex  items-center gap-5 p-5  justify-center  h-[88vh] sm:flex-col sm:p-2 map-position-container map-pos">
