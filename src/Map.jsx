@@ -68,7 +68,7 @@ const Map = () => {
           center={[37.0902, -95.7129]}
           zoom={13}
           zoomControl={false}
-          className="map-container"
+          className="map-container "
           style={{
             height: "80vh",
             width: "80vw",
@@ -95,7 +95,7 @@ const Map = () => {
           </LayersControl>
         </MapContainer>
 
-        <div className=" scroll-h p-5 bg-slate-300 rounded-md overflow-hidden h-[80vh] min-w-max  ">
+        <div className=" scroll-h p-5 bg-slate-300 rounded-md overflow-hidden h-[80vh] min-w-max sm:w-[90vw] ">
           <h3 className="font-semibold text-base text-center mb-5 sm:text-base sm:p-0">
             Current and old position of Marker <br />
             <span className="text-green-600">Current</span> |{" "}
