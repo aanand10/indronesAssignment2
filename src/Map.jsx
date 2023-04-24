@@ -17,13 +17,13 @@ const maps = {
   base: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 };
 
-var greenIcon = L.icon({
+var droneIcon = L.icon({
   iconUrl: "/icoDroneBG.png",
-
   iconSize: [100, 60], // size of the icon
 });
 
 const Map = () => {
+  // declaring state for various variables
   const [map, setMap] = useState(null);
   const [route, setRoute] = useState(null);
   const [start, setStart] = useState([18.910257914669327, 73.32854879620761]);
@@ -33,9 +33,6 @@ const Map = () => {
   const [flag, setFlag] = useState(true);
   const [intervalId, setIntervalId] = useState(true);
 
-  useEffect(() => {
-    setIndex(0);
-  }, [route]);
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (flag) {
@@ -60,10 +57,9 @@ const Map = () => {
       </div>
       <section className="flex  items-center gap-5 p-5  justify-center  h-[88vh] sm:flex-col sm:p-2 map-position-container map-pos">
         <MapContainer
-          center={[37.0902, -95.7129]}
           zoom={13}
           zoomControl={false}
-          className="map-container "
+          className="map-container"
           style={{
             height: "80vh",
             width: "80vw",
@@ -84,7 +80,7 @@ const Map = () => {
             <LayersControl.BaseLayer checked name="Map">
               <TileLayer url={maps.base} />
               {droneMarker && (
-                <Marker position={droneMarker} icon={greenIcon}></Marker>
+                <Marker position={droneMarker} icon={droneIcon}></Marker>
               )}
             </LayersControl.BaseLayer>
           </LayersControl>
@@ -93,8 +89,8 @@ const Map = () => {
         <div className="lnglat-container scroll-h p-5 bg-slate-300 rounded-md overflow-hidden h-[80vh] min-w-max  ">
           <h3 className="font-semibold text-base text-center mb-5 sm:text-base sm:p-0">
             Current and old position of Marker <br />
-            <span className="text-green-600">Current</span> |{" "}
-            <span className="text-blue-500">Old</span>
+            <span className="text-green-600">Current </span>|
+            <span className="text-blue-500"> Old</span>
           </h3>
           <ul
             id="scroller"
@@ -103,6 +99,7 @@ const Map = () => {
             {route &&
               route.map((element, key) => {
                 if (key <= index) {
+                  // for scroll stick at bottom of the div
                   var elementt = document.getElementById("scroller");
                   elementt.scrollTop = elementt.scrollHeight;
                   return (

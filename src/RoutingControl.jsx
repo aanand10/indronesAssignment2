@@ -9,8 +9,7 @@ const createRoutineMachineLayer = ({
   start,
   end,
   color,
-  setRoute, 
-  
+  setRoute,
 }) => {
   const instance = L.Routing.control({
     position,
@@ -24,7 +23,6 @@ const createRoutineMachineLayer = ({
       ],
     },
   }).on("routesfound", function (e) {
-    e.routes[0].coordinates;
     setRoute(e.routes[0].coordinates);
   });
   return instance;
